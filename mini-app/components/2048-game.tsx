@@ -107,7 +107,7 @@ export default function Game() {
   }, [grid, gameOver, move, addRandomTile]);
 
   useEffect(() => {
-    setGrid(addRandomTile(addRandomTile(Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(0))));
+    setGrid(addRandomTile(addRandomTile(Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(0)))));
   }, [addRandomTile]);
 
   useEffect(() => {
