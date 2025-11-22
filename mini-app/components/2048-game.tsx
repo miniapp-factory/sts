@@ -29,7 +29,7 @@ export default function Game() {
     return newGrid;
   }, []);
 
-  const move = useCallback((dir: "up" | "down" | "left" | "right") => {
+  const move = useCallback((g: number[][], dir: "up" | "down" | "left" | "right") => {
     const rotate = (g: number[][], times: number) => {
       let res = g;
       for (let t = 0; t < times; t++) {
@@ -89,7 +89,7 @@ export default function Game() {
 
   const handleMove = useCallback((dir: "up" | "down" | "left" | "right") => {
     if (gameOver) return;
-    const { grid: newGrid, score: delta } = move(grid);
+    const { grid: newGrid, score: delta } = move(grid, dir);
     if (JSON.stringify(newGrid) === JSON.stringify(grid)) return; // no change
     const updatedGrid = addRandomTile(newGrid);
     setGrid(updatedGrid);
